@@ -36,12 +36,21 @@ export class SubmitFeedbackUseCase {
         await this.mailAdapter.sendMail({
             subject: 'New feedback from website',
             body: [
-                `<div style="font-family: sans-serif; font-size: 16px; color: #111">`,
-                `<p>Feedback type: ${type}</p>`,
-                `<p>Comment: ${comment}</p>`,
+                `<div style="font-family: Monospace; font-size: 16px; color: #111">`,
+                `<h1>Next Level Week Widget application</h1>`,
+                `<br>`,
+                `<br>`,
+                `<h3>Good guy, you received a new e-mail, check out rigth now</h3>`,
+                `<br>`,
+                `<div">`,
+                `<p style="width: 50%"><strong>Comment Type:</strong> ${type}</p>`,                              
+                `<p><strong>Comment:</strong> ${comment}</p>`,
+                `<p><strong>Screenshot taken from the website:</strong></p>`,
                 screenshot ? `<img src="${screenshot}"/>` : null,
+                `<div>`,
+                `<p>Best regards,</p>`,
                 `<div>`
-            ].join('') 
+            ].join('')            
         });
     }
 }
